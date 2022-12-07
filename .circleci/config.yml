@@ -17,7 +17,7 @@ jobs:
                 name: Test application
                 command: |
                     TEST=$(circleci tests glob "src/__tests__/*.js")
-                    circleci tests run --command='yarn test $TEST' --batch-count=2 --fail-fast
+                    circleci tests run --command='yarn test $TEST' --batch-count=2 --test-results-path=junit.xml --fail-fast
                     #yarn test $TEST
             - run:
                 command: cp junit.xml ~/junit/
